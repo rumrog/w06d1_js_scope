@@ -103,3 +103,30 @@ console.log(verdict);
 // The const variable [verdict] (through the [declareWeapon] function)
 // can access the reassigned value of the object [scenario]
 // made effective with the function [changeWeapon]
+
+// Episode 6
+let murderer = 'Colonel Mustard';
+
+const changeMurderer = function() {
+  murderer = 'Mr. Green';
+
+  const plotTwist = function() {
+    murderer = 'Mrs. White';
+  }
+
+  plotTwist();
+}
+
+const declareMurderer = function () {
+  return `The murderer is ${murderer}.`;
+}
+
+changeMurderer();
+const verdict = declareMurderer();
+console.log(verdict);
+
+// PREDICTED OUTPUT #6 - The murderer is Mrs.White.
+// The const variable [verdict] (through the [declareMurderer] function)
+// can access the reassigned values of [murderer] within [changeMurderer]
+// because of scope pollution and lack of variable keywords.
+// First gets globally defined as 'Mr. Green' and secondly as 'Mrs. White'.
