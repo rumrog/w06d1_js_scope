@@ -130,3 +130,36 @@ console.log(verdict);
 // can access the reassigned values of [murderer] within [changeMurderer]
 // because of scope pollution and lack of variable keywords.
 // First gets globally defined as 'Mr. Green' and secondly as 'Mrs. White'.
+
+// Episode 7
+let murderer = 'Professor Plum';
+
+const changeMurderer = function() {
+  murderer = 'Mr. Green';
+
+  const plotTwist = function() {
+    let murderer = 'Colonel Mustard';
+
+    const unexpectedOutcome = function() {
+      murderer = 'Miss Scarlet';
+    }
+
+    unexpectedOutcome();
+  }
+
+  plotTwist();
+}
+
+const declareMurderer = function() {
+  return `The murderer is ${murderer}.`;
+}
+
+changeMurderer();
+const verdict = declareMurderer();
+console.log(verdict);
+
+// PREDICTED OUTPUT #7 - The murderer is Mr. Green.
+// The const variable [verdict] (through the [declareMurderer] function)
+// can access the reassigned value 'Mr. Green', due to scope pollution 
+// but the reassignments within [plotTwist] and below cannot access 
+// the values outside their blocks scope.
