@@ -163,3 +163,44 @@ console.log(verdict);
 // can access the reassigned value 'Mr. Green', due to scope pollution 
 // but the reassignments within [plotTwist] and below cannot access 
 // the values outside their blocks scope.
+
+// Episode 8
+const scenario = {
+  murderer: 'Mrs. Peacock',
+  room: 'Conservatory',
+  weapon: 'Lead Pipe'
+};
+
+const changeScenario = function() {
+  scenario.murderer = 'Mrs. Peacock'; // Murderer remains the same.
+  scenario.room = 'Dining Room'; // Room is now 'Dinning Room'.
+
+  const plotTwist = function(room) {
+    if (scenario.room === room) {  // With the argument passed below, this is true
+      scenario.murderer = 'Colonel Mustard'; // then now murderer is 'Colonel Mustard'
+    }
+
+    const unexpectedOutcome = function(murderer) {
+      if (scenario.murderer === murderer) { // With the argument passed below, this is true
+        scenario.weapon = 'Candle Stick'; // then now weapon is 'Candle Stick'
+      }
+    }
+
+    unexpectedOutcome('Colonel Mustard');
+  }
+
+  plotTwist('Dining Room');
+}
+
+const declareWeapon = function() {
+  return `The weapon is ${scenario.weapon}.` 
+}
+
+changeScenario();
+const verdict = declareWeapon();
+console.log(verdict);
+
+// PREDICTED OUTPUT #8 - The weapon is Candle Stick.
+// The const variable [verdict] (through the [declareWeapon] function)
+// can access the reassigned weapon [Candle Stick] since the conditions
+// applied to the object [scenario] in the [changeScenario] function are true.
