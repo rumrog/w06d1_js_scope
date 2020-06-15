@@ -41,3 +41,22 @@ console.log(verdict);
 // cannot access the new string of the [changeMurderer] function 
 // neither its calling can become effective. 
 
+// Episode 3
+let murderer = 'Professor Plum';
+
+const declareMurderer = function() {
+  let murderer = 'Mrs. Peacock';
+  return `The murderer is ${murderer}.`;
+}
+
+const firstVerdict = declareMurderer();
+console.log('First Verdict: ', firstVerdict);
+
+const secondVerdict = `The murderer is ${murderer}.`;
+console.log('Second Verdict: ', secondVerdict);
+
+// PREDICTED OUTPUT #3 - First Verdict: The murderer is Mrs. Peacock.
+//                       Second Verdict: The murderer is Profesor Plum.
+// The const variable [firstVerdict] can access the scope of the block of 
+// the [declareMurderer] function and prints the reassigned value of [murderer].
+// The const variable [secondVerdict] can access the global let variable [murderer].
