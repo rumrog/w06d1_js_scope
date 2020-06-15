@@ -60,3 +60,23 @@ console.log('Second Verdict: ', secondVerdict);
 // The const variable [firstVerdict] can access the scope of the block of 
 // the [declareMurderer] function and prints the reassigned value of [murderer].
 // The const variable [secondVerdict] can access the global let variable [murderer].
+
+// Episode 4
+let suspectOne = 'Miss Scarlet';
+let suspectTwo = 'Professor Plum';
+let suspectThree = 'Mrs. Peacock';
+
+const declareAllSuspects = function() {
+  let suspectThree = 'Colonel Mustard';
+  return `The suspects are ${suspectOne}, ${suspectTwo}, ${suspectThree}.`;
+}
+
+const suspects = declareAllSuspects();
+console.log(suspects);
+console.log(`Suspect three is ${suspectThree}.`);
+
+// PREDICTED OUTPUT #4 - The suspects are Miss Scarlet, Professor Plum, Colonel Mustard.
+//                       Suspect three is Mrs. Peacock.
+// The const variable [suspects] (through the [declareAllSuspects] function)
+// can access the redefined let variable [suspectThree], printing the new name.
+// The second console.log can access the global let variable [suspectThree].
