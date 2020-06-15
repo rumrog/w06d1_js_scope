@@ -16,8 +16,7 @@ console.log(verdict);
 
 // PREDICTED OUTPUT #1 - The murderer is Miss Scarlet.
 // The [verdict] const variable (through the [declareMureder] function) 
-// can access the value 'Miss Scarlet' 
-// within the globally defined [scenario] object.
+// can access the value 'Miss Scarlet' within the [scenario] object.
 
 
 // Episode 2
@@ -80,3 +79,27 @@ console.log(`Suspect three is ${suspectThree}.`);
 // The const variable [suspects] (through the [declareAllSuspects] function)
 // can access the redefined let variable [suspectThree], printing the new name.
 // The second console.log can access the global let variable [suspectThree].
+
+// Episode 5
+const scenario = {
+  murderer: 'Miss Scarlet',
+  room: 'Kitchen',
+  weapon: 'Candle Stick'
+};
+
+const changeWeapon = function(newWeapon) {
+  scenario.weapon = newWeapon;
+}
+
+const declareWeapon = function() {
+  return `The weapon is the ${scenario.weapon}.`;
+}
+
+changeWeapon('Revolver');
+const verdict = declareWeapon();
+console.log(verdict);
+
+// PREDICTED OUTPUT #5 - The weapon is the Revolver.
+// The const variable [verdict] (through the [declareWeapon] function)
+// can access the reassigned value of the object [scenario]
+// made effective with the function [changeWeapon]
