@@ -204,3 +204,22 @@ console.log(verdict);
 // The const variable [verdict] (through the [declareWeapon] function)
 // can access the reassigned weapon [Candle Stick] since the conditions
 // applied to the object [scenario] in the [changeScenario] function are true.
+
+// Episode 9
+let murderer = 'Professor Plum';
+
+if (murderer === 'Professor Plum') {
+  let murderer = 'Mrs. Peacock';
+}
+
+const declareMurderer = function() {
+  return `The murderer is ${murderer}.`;
+}
+
+const verdict = declareMurderer();
+console.log(verdict);
+
+// PREDICTED OUTPUT #9 - The murderer is Professor Plum
+// The global let variable [murderer] remains the same.
+// The attempt of reassingment of the variable does not 
+// scape the scope of the block within the if statement.
